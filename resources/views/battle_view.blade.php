@@ -5,30 +5,30 @@
     <div id="toolbar">
         <form id="queryForm" class="row gy-2 gx-3 align-items-center" action="{{ route('battleReport') }}" method="GET">            
             <div class="col-auto">
-                <label class="visually-hidden" for="query_trainer_id">訓練家編號</label>
+                <label class="visually-hidden" for="trainer_id">訓練家編號</label>
                 <div class="input-group">
                     <div class="input-group-text">訓練家編號</div>
-                    <input type="text" class="form-control" placeholder="請輸入關鍵字..." name="query_trainer_id" value="{{$search['query_trainer_id']}}">
+                    <input type="text" class="form-control" placeholder="請輸入關鍵字..." name="trainer_id" value="{{$search['trainer_id']}}">
                 </div>
             </div>
             <div class="col-auto">
-                <label class="visually-hidden" for="query_trainer_name">訓練家名稱</label>
+                <label class="visually-hidden" for="trainer_name">訓練家名稱</label>
                 <div class="input-group">
                     <div class="input-group-text">訓練家名稱</div>
-                    <input type="text" class="form-control" placeholder="請輸入關鍵字..." name="query_trainer_name" value="{{$search['query_trainer_name']}}">
+                    <input type="text" class="form-control" placeholder="請輸入關鍵字..." name="trainer_name" value="{{$search['trainer_name']}}">
                 </div>
             </div>
             <div class="col-auto">
-                <label class="visually-hidden" for="query_order_by">排序</label>
+                <label class="visually-hidden" for="order_by">排序</label>
                 <div class="input-group">
                     <div class="input-group-text">排序</div>
-                    <select class="form-select" name="query_order_by">
-                        <option value="idasc" {{$search['query_order_by']=='idasc'? 'selected': ''}}> 訓練家編號 小->大 </option>
-                        <option value="iddesc" {{$search['query_order_by']=='iddesc'? 'selected': ''}}> 訓練家編號 大->小 </option>
-                        <option value="winasc" {{$search['query_order_by']=='winasc'? 'selected': ''}}> 獲勝次數 小->大 </option>
-                        <option value="windesc" {{$search['query_order_by']=='windesc'? 'selected': ''}}> 獲勝次數 大->小 </option>
-                        <option value="loseasc" {{$search['query_order_by']=='loseasc'? 'selected': ''}}> 落敗次數 小->大 </option>
-                        <option value="losedesc" {{$search['query_order_by']=='losedesc'? 'selected': ''}}> 落敗次數 大->小 </option>
+                    <select class="form-select" name="order_by">
+                        <option value="idasc" {{$search['order_by']=='idasc'? 'selected': ''}}> 訓練家編號 小->大 </option>
+                        <option value="iddesc" {{$search['order_by']=='iddesc'? 'selected': ''}}> 訓練家編號 大->小 </option>
+                        <option value="winasc" {{$search['order_by']=='winasc'? 'selected': ''}}> 獲勝次數 小->大 </option>
+                        <option value="windesc" {{$search['order_by']=='windesc'? 'selected': ''}}> 獲勝次數 大->小 </option>
+                        <option value="loseasc" {{$search['order_by']=='loseasc'? 'selected': ''}}> 落敗次數 小->大 </option>
+                        <option value="losedesc" {{$search['order_by']=='losedesc'? 'selected': ''}}> 落敗次數 大->小 </option>
                     </select>
                 </div>
             </div>
@@ -62,7 +62,7 @@
     <script>
         /*========== 將從controller得到的資料放到bootstrap-table上 ========== */
         $('#battleReportTable').bootstrapTable({
-            url: "{{route('api.datas.battleReport')}}?trainer_id={{$search['query_trainer_id']}}&trainer_name={{$search['query_trainer_name']}}&order_by={{$search['query_order_by']}}",
+            url: "{{route('api.datas.battleReport')}}?trainer_id={{$search['trainer_id']}}&trainer_name={{$search['trainer_name']}}&order_by={{$search['order_by']}}",
             method: "get",
             dataType: "json",
             uniqueId: "trainer_id",

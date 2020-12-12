@@ -55,9 +55,9 @@ class BattlePageController extends Controller {
     /* ========== 對戰紀錄頁 ========== */
     public function showBattleReportPage(Request $request) {
         $search = [
-            'query_trainer_id'    => $request->query_trainer_id ?? '',
-            'query_trainer_name'  => $request->query_trainer_name ?? '',
-            'query_order_by'  => $request->query_order_by ?? 'idasc'
+            'trainer_id'    => $request->trainer_id ?? '',
+            'trainer_name'  => $request->trainer_name ?? '',
+            'order_by'  => $request->order_by ?? 'idasc'
         ];
         $data = [
             'search' => $search
