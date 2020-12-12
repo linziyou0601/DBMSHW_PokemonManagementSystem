@@ -185,7 +185,7 @@ class GetDataController extends Controller {
         $mysqli = $this->getDBConnection();
         $sql = <<<SQL
             SELECT b.battleID, b.battleDatetime, 
-                   tW.trainerID AS winnerID,  W.trainerName AS winnerName, 
+                   tW.trainerID AS winnerID,  tW.trainerName AS winnerName, 
                    tL.trainerID AS loserID,  tL.trainerName AS loserName, 
                    b.description
             FROM battle b, trainer tW, trainer tL
