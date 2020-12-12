@@ -58,7 +58,7 @@ class HomePageController extends Controller {
             SELECT p.pokemonID,p.pokemonName, p.description,
                    GROUP_CONCAT(t.typeID) AS typeID, 
                    GROUP_CONCAT(t.typeName) AS typeName
-            FROM pokemon p, pokemontype pt, type t
+            FROM pokemon p, pokemonType pt, type t
             WHERE p.pokemonID = pt.pokemonID AND pt.typeID = t.typeID
             GROUP BY p.pokemonID LIMIT 10
         SQL;

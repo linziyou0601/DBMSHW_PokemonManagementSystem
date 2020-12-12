@@ -142,7 +142,7 @@ class PokemonPageController extends Controller {
         $mysqli = $this->getDBConnection();
         $sql = <<<SQL
             SELECT p.pokemonID, pt.typeID 
-            FROM pokemontype pt, pokemon p 
+            FROM pokemonType pt, pokemon p 
             WHERE pt.pokemonID = p.pokemonID AND pt.pokemonID = ?
         SQL;
         $stmt = $mysqli->prepare($sql);
