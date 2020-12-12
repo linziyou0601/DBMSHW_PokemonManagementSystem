@@ -57,7 +57,7 @@ class GetDataController extends Controller {
             SELECT p.pokemonID,p.pokemonName, p.description,
                    GROUP_CONCAT(t.typeID) AS typeID, 
                    GROUP_CONCAT(t.typeName) AS typeName
-            FROM pokemon p, pokemontype pt, type t
+            FROM pokemon p, pokemonType pt, type t
             WHERE p.pokemonID = pt.pokemonID AND pt.typeID = t.typeID
             GROUP BY p.pokemonID
         SQL;
@@ -95,7 +95,7 @@ class GetDataController extends Controller {
                    GROUP_CONCAT(t.typeID) AS typeID, 
                    GROUP_CONCAT(t.typeName) AS typeName, 
                    tr.trainerName
-            FROM pokemon p, pokemontype pt, type t, trainer tr, relationship r
+            FROM pokemon p, pokemonType pt, type t, trainer tr, relationship r
             WHERE p.pokemonID = pt.pokemonID AND pt.typeID = t.typeID AND
                   r.pokemonID = p.pokemonID AND r.trainerID = tr.trainerID AND tr.trainerID = ?
             GROUP BY p.pokemonID
